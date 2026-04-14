@@ -57,10 +57,21 @@ function App() {
       <h2>Student List</h2>
 
       {students.map((s, index) => (
-        <div key={index}>
-          <p>{s.name} | {s.age} | {s.course}</p>
-        </div>
-      ))}
+  <div key={index}>
+    <p>
+      {s.name} | {s.age} | {s.course}
+      <button
+        onClick={() => {
+          const updatedStudents = students.filter((_, i) => i !== index);
+          setStudents(updatedStudents);
+        }}
+        style={{ marginLeft: "10px" }}
+      >
+        Delete
+      </button>
+    </p>
+  </div>
+))}
     </div>
   );
 }
